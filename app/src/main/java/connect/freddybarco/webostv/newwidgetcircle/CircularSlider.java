@@ -94,7 +94,7 @@ public class CircularSlider extends View {
         int thumbSize = a.getDimensionPixelSize(R.styleable.CircularSlider_thumb_size, 30);
         int thumbColor = a.getColor(R.styleable.CircularSlider_thumb_color, Color.BLACK);
         int borderThickness = a.getDimensionPixelSize(R.styleable.CircularSlider_border_thickness, 20);
-        int borderColor = a.getColor(R.styleable.CircularSlider_border_color, Color.BLUE);
+        int borderColor = a.getColor(R.styleable.CircularSlider_border_color, Color.BLACK);
         String borderGradientColors = a.getString(R.styleable.CircularSlider_border_gradient_colors);
         Drawable thumbImage = a.getDrawable(R.styleable.CircularSlider_thumb_image);
 
