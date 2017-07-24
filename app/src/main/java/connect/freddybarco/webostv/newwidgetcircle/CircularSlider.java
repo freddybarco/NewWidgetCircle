@@ -14,10 +14,14 @@ import android.graphics.SweepGradient;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.io.Console;
 import java.util.Arrays;
+
+import static android.content.ContentValues.TAG;
 
 public class CircularSlider extends View {
 
@@ -85,10 +89,10 @@ public class CircularSlider extends View {
         // read all available attributes
         float startAngle = a.getFloat(R.styleable.CircularSlider_start_angle, (float) Math.PI / 2);
         float angle = a.getFloat(R.styleable.CircularSlider_angle, (float) Math.PI / 2);
-        int thumbSize = a.getDimensionPixelSize(R.styleable.CircularSlider_thumb_size, 50);
-        int thumbColor = a.getColor(R.styleable.CircularSlider_thumb_color, Color.GRAY);
+        int thumbSize = a.getDimensionPixelSize(R.styleable.CircularSlider_thumb_size, 30);
+        int thumbColor = a.getColor(R.styleable.CircularSlider_thumb_color, Color.BLACK);
         int borderThickness = a.getDimensionPixelSize(R.styleable.CircularSlider_border_thickness, 20);
-        int borderColor = a.getColor(R.styleable.CircularSlider_border_color, Color.RED);
+        int borderColor = a.getColor(R.styleable.CircularSlider_border_color, Color.BLUE);
         String borderGradientColors = a.getString(R.styleable.CircularSlider_border_gradient_colors);
         Drawable thumbImage = a.getDrawable(R.styleable.CircularSlider_thumb_image);
 
@@ -220,6 +224,14 @@ public class CircularSlider extends View {
             mPaint.setStyle(Paint.Style.FILL);
             canvas.drawCircle(mThumbX, mThumbY, mThumbSize, mPaint);
         }
+
+        int xPos = (canvas.getWidth() / 2);
+        int yPos = (int) ((canvas.getHeight() / 2) - ((mPaint.descent() + mPaint.ascent()) / 2)) ;
+
+        mPaint.setColor(Color.BLACK);
+        mPaint.setTextAlign(Paint.Align.CENTER);
+        mPaint.setTextSize(50);
+        canvas.drawText("Some Text", xPos, yPos, mPaint);
     }
 
     /**
@@ -234,6 +246,9 @@ public class CircularSlider extends View {
         //noinspection SuspiciousNameCombination
         double c = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
         mAngle = Math.acos(distanceX / c);
+
+        Log.d(TAG,"Angle : "+ mAngle);
+
         if (distanceY < 0) {
             mAngle = -mAngle;
         }
