@@ -43,6 +43,8 @@ public class CircularSlider extends View {
     private int mThumbX;
     private int mThumbY;
 
+    private int value;
+
     private int mCircleCenterX;
     private int mCircleCenterY;
     private int mCircleRadius;
@@ -231,7 +233,7 @@ public class CircularSlider extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(50);
-        canvas.drawText("Some Text", xPos, yPos, mPaint);
+        canvas.drawText(Integer.toString(value), xPos, yPos, mPaint);
     }
 
     /**
@@ -246,6 +248,7 @@ public class CircularSlider extends View {
         //noinspection SuspiciousNameCombination
         double c = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
         mAngle = Math.acos(distanceX / c);
+        value = (int)((mAngle/Math.PI)*100);
 
         Log.d(TAG,"Angle : "+ mAngle);
 
