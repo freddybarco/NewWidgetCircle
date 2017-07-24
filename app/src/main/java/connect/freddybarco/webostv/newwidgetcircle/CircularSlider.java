@@ -89,8 +89,8 @@ public class CircularSlider extends View {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircularSlider, defStyleAttr, 0);
 
         // read all available attributes
-        float startAngle = a.getFloat(R.styleable.CircularSlider_start_angle, (float) Math.PI / 2);
-        float angle = a.getFloat(R.styleable.CircularSlider_angle, (float) Math.PI / 2);
+        float startAngle = a.getFloat(R.styleable.CircularSlider_start_angle, (float) Math.PI*2);
+        float angle = a.getFloat(R.styleable.CircularSlider_angle, (float) Math.PI *2);
         int thumbSize = a.getDimensionPixelSize(R.styleable.CircularSlider_thumb_size, 30);
         int thumbColor = a.getColor(R.styleable.CircularSlider_thumb_color, Color.BLACK);
         int borderThickness = a.getDimensionPixelSize(R.styleable.CircularSlider_border_thickness, 20);
@@ -210,7 +210,8 @@ public class CircularSlider extends View {
         if (mGradientShader != null) {
             mPaint.setShader(mGradientShader);
         }
-        canvas.drawCircle(mCircleCenterX, mCircleCenterY, mCircleRadius, mPaint);
+        canvas.drawCircle(mCircleCenterX, mCircleCenterY, mCircleRadius-20, mPaint);
+        canvas.drawCircle(mCircleCenterX, mCircleCenterY, mCircleRadius+20, mPaint);
 
         // find thumb position
         mThumbX = (int) (mCircleCenterX + mCircleRadius * Math.cos(mAngle));
@@ -248,9 +249,9 @@ public class CircularSlider extends View {
         //noinspection SuspiciousNameCombination
         double c = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
         mAngle = Math.acos(distanceX / c);
-        value = (int)((mAngle/Math.PI)*100);
+        value = (int)((mAngle/(Math.PI))*200);
 
-        Log.d(TAG,"Angle : "+ mAngle);
+        //Log.d(TAG,"Angle : "+ mAngle);
 
         if (distanceY < 0) {
             mAngle = -mAngle;
