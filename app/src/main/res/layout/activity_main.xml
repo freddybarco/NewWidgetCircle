@@ -6,15 +6,10 @@
     android:layout_height="match_parent"
     tools:context="connect.freddybarco.webostv.newwidgetcircle.MainActivity">
 
-    <me.angrybyte.circularslider.CircularSlider
+    <connect.freddybarco.webostv.newwidgetcircle.CircularSlider
         android:id="@+id/circular"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:padding="30dp"
-        android:angle="3.14"
-        android:border_color="#505090"
-        android:border_thickness="14dp"
-        android:thumb_color="#30AEFF"
-        android:thumb_size="24dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"/>
 
 </RelativeLayout>
