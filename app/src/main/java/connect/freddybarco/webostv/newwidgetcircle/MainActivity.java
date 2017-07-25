@@ -11,14 +11,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements IWidgetActivity{
 
     private static final String TAG =MainActivity.class.getSimpleName();
-    //private CircularSlider CS;
-    private Button bt;
+    private CircularSlider CS;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CircularSlider CS = (CircularSlider) findViewById(R.id.circular);
+         CS = (CircularSlider) findViewById(R.id.circular);
          CS.setOnSliderRangeMovedListener(this);
     }
 
