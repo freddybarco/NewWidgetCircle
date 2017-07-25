@@ -9,12 +9,6 @@
     <connect.freddybarco.webostv.newwidgetcircle.CircularSlider
         android:id="@+id/circular"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="30dp"
-        CircularSlider_angle="3.14"
-        CircularSlider_border_color="#505090"
-        CircularSlider_border_thickness="14dp"
-        CircularSlider_thumb_color="#30AEFF"
-        CircularSlider_thumb_size="24dp" />
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
