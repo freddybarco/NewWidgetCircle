@@ -184,7 +184,7 @@ public class CircularSlider extends View {
 
         mPaint.setColor(Color.BLACK);
         mPaint.setTextAlign(Paint.Align.CENTER);
-        mPaint.setTextSize(50);
+        mPaint.setTextSize(70);
         canvas.drawText(Integer.toString(value), mCircleCenterX, mCircleCenterY, mPaint);
     }
 

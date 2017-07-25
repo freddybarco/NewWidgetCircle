@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements IWidgetActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CircularSlider CS = (CircularSlider) findViewById(R.id.circle);
+        CircularSlider CS = (CircularSlider) findViewById(R.id.circular);
          CS.setOnSliderRangeMovedListener(this);
     }
 
