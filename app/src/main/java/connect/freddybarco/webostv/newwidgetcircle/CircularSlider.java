@@ -218,7 +218,6 @@ public class CircularSlider extends View {
                 mIsThumbSelected = false;
                 break;
             }
-
         }
         invalidate();
         return true;
