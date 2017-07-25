@@ -21,10 +21,12 @@ import static android.content.ContentValues.TAG;
 
 public class CircularSlider extends View {
 
+    private IWidgetActivity CircularS;
+
     private int mThumbX;
     private int mThumbY;
 
-    private int value;
+    public int value;
 
     private int mCircleCenterX;
     private int mCircleCenterY;
@@ -151,7 +153,6 @@ public class CircularSlider extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //canvas
 
         // outer circle (ring)
         mPaint.setColor(mBorderColor);
@@ -185,6 +186,10 @@ public class CircularSlider extends View {
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTextSize(50);
         canvas.drawText(Integer.toString(value), mCircleCenterX, mCircleCenterY, mPaint);
+    }
+
+    public void setOnSliderRangeMovedListener (IWidgetActivity listener){
+        CircularS = listener;
     }
 
     @Override
@@ -246,6 +251,8 @@ public class CircularSlider extends View {
         if (distanceY < 0) {
             mAngle = -mAngle;
         }
+
+        if (CircularS != null){ CircularS.valuechange(value);}
 
     }
 
