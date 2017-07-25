@@ -151,6 +151,7 @@ public class CircularSlider extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        //canvas
 
         // outer circle (ring)
         mPaint.setColor(mBorderColor);
